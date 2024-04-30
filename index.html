@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Node.js File System y Path</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f9f9f9;
+      color: #333;
+    }
+
+    .container {
+      width: 80%;
+      margin: 50px auto;
+      background-color: #fff;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+      line-height: 1.6;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      text-align: center;
+      margin-bottom: 20px;
+      color: #007bff;
+    }
+
+    h2 {
+      font-size: 1.8rem;
+      margin-top: 30px;
+      margin-bottom: 15px;
+      color: #007bff;
+    }
+
+    p {
+      font-size: 1.1rem;
+      margin-bottom: 15px;
+    }
+
+    pre {
+      background-color: #f5f5f5;
+      padding: 15px;
+      border-radius: 8px;
+      overflow-x: auto;
+      margin-bottom: 20px;
+    }
+
+    code {
+      font-family: 'Consolas', 'Courier New', monospace;
+      font-size: 1.1rem;
+      color: #333;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1>Node.js File System y Path</h1>
+    <p>En Node.js, los módulos <code>fs</code> y <code>path</code> son fundamentales para trabajar con el sistema de
+      archivos y manipular rutas de archivos y directorios, respectivamente.</p>
+    <h2>fs (File System)</h2>
+    <p>Este módulo proporciona una API para interactuar con el sistema de archivos del sistema operativo en el que se
+      ejecuta Node.js. Te permite realizar operaciones como leer archivos, escribir archivos, crear directorios,
+      eliminar archivos, entre otros.</p>
+    <p>Algunos métodos comunes de fs incluyen:</p>
+    <pre><code>
+            fs.readFile(): Lee el contenido de un archivo.
+            fs.writeFile(): Escribe datos en un archivo.
+            fs.readdir(): Lee el contenido de un directorio.
+            fs.mkdir(): Crea un nuevo directorio.
+            fs.unlink(): Elimina un archivo.
+            fs.stat(): Obtiene información sobre un archivo o directorio.
+        </code></pre>
+    <p>Ejemplo de uso:</p>
+    <pre><code>
+            const fs = require("fs");
+
+            fs.readFile("archivo.txt", "utf8", (err, data) => {
+                if (err) throw err;
+                console.log(data);
+            });
+        </code></pre>
+    <h2>path</h2>
+    <p>Este módulo proporciona utilidades para trabajar con rutas de archivos y directorios. Esto es útil para manejar
+      rutas de forma independiente del sistema operativo, ya que las rutas pueden ser diferentes en Windows, Linux, etc.
+    </p>
+    <p>Algunos métodos comunes de path incluyen:</p>
+    <pre><code>
+            path.join(): Une segmentos de ruta en una sola ruta.
+            path.resolve(): Resuelve una secuencia de segmentos de ruta en una ruta absoluta.
+            path.basename(): Devuelve el último segmento de la ruta.
+            path.dirname(): Devuelve el directorio padre de la ruta.
+        </code></pre>
+    <p>Ejemplo de uso:</p>
+    <pre><code>
+            const path = require("path");
+
+            const fullPath = path.join(__dirname, "archivo.txt");
+            console.log(fullPath);
+        </code></pre>
+  </div>
+</body>
+
+</html>
